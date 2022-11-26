@@ -57,7 +57,7 @@ console.log(solution2(100, 2)); // 102
 //::::
 
 function solution3(num1, num2) {
-    return Math.floor(num1 * num2);
+    return num1 * num2;
 }
 console.log(solution3(3, 4)); // 5
 console.log(solution3(27, 19)); // 102
