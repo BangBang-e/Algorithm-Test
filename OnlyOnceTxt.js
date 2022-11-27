@@ -45,6 +45,6 @@ function anotherWay(s) {
     // ex) ['a', 'p', 'p', 'l', 'e'] -> p의 정방향은 s[1], 역방향은 s[2], false
     return res.sort().join(''); // 오름차순으로 정렬 후 문자열로 join
 }
-console.log(anotherWay("apple"));
+console.log(anotherWay("apple")); // "ael"
 
 //-------------------------------------------------------------------------------------------
