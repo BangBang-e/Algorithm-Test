@@ -1,25 +1,24 @@
-//? [중앙값 구하기]
+//? [자릿수 더하기]
 //TODO <문제 설명>
-//TODO 중앙값은 어떤 주어진 값들을 크기의 순서대로 정렬했을 때 가장 중앙에 위치하는 값을 의미합니다.
-//TODO 예를 들어 1, 2, 7, 10, 11의 중앙값은 7입니다. 정수 배열 array가 매개변수로 주어질 때,
-//TODO 중앙값을 return 하도록 solution 함수를 완성해보세요.
+//TODO 정수 n이 매개변수로 주어질 때 n의 각 자리 숫자의 합을 return하도록 solution 함수를 완성해주세요.
 
 //! <제한 사항>
-//! array의 길이는 홀수입니다.
-//! 0 < array의 길이 < 100
-//! -1,000 < array의 원소 < 1,000
+//! 0 ≤ n ≤ 1,000,000
 
 //* <입출력 예>
-//* array = [1, 2, 7, 10, 11], result = 7
-//* array = [9, -1, 0], result = 0 (9, -1, 0을 오름차순 정렬하면 -1, 0, 9이므로 중앙값은 0)
+//* 1234 -> 1 + 2 + 3 + 4 = 10을 return합니다.
+//* 930211 -> 9 + 3 + 0 + 2 + 1 + 1 = 16을 return합니다.
 
 //::::
 
-function solution(array) {
-    let arr = array.sort((a, b) =>  a - b ); // 배열을 오름차순으로 정렬
-    return arr[Math.floor(array.length/2)]; // 배열길이에 2를 나눈수를 내림했을 시 === 중앙값의 인덱스 순서
+function solution(n) {
+    var answer = 0;
+    for (let i = 0; i < String(n).length; i++) { // 문자형으로 변환한 뒤 길이만큼 순회
+        answer += Number(String(n)[i]); // 각 요소를 숫자로 다시 변환하여 answer에 더함
+    }
+    return answer;
 }
-console.log(solution([1, 2, 7, 10, 11])); // 7
-console.log(solution([9, -1, 0])); // 0
+console.log(solution(1234)); // 10
+console.log(solution(930211)); // 16
 
 //-------------------------------------------------------------------------------------------
