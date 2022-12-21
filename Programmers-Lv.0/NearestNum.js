@@ -12,6 +12,7 @@
 //* <입출력 예>
 //* array = [3, 10, 28], n = 20, result = 28
 //* array = [10, 11, 12], n = 13, result = 12
+
 //::::
 
 function solution(array, n) {

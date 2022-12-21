@@ -12,6 +12,7 @@
 //* <입출력 예>
 //* slice = 7, n = 10, result = 2
 //* slice = 7, n = 10, result = 2
+
 //::::
 
 function solution(slice, n) {

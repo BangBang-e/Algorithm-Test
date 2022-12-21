@@ -11,6 +11,7 @@
 //* num1이 2이고 num2가 3이므로 다릅니다. 따라서 -1을 return합니다.
 //* num1이 11이고 num2가 11이므로 같습니다. 따라서 1을 return합니다.
 //* num1이 7이고 num2가 99이므로 다릅니다. 따라서 -1을 return합니다.
+
 //::::
 
 function solution(num1, num2) {

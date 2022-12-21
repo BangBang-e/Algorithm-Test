@@ -10,6 +10,7 @@
 
 //* <입출력 예>
 //* my_string = "hello", n = 3, result = "hhheeellllllooo"
+
 //::::
 
 function solution(my_string, n) {

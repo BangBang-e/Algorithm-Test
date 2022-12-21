@@ -12,6 +12,7 @@
 //* angle이 70이므로 예각입니다. 따라서 1을 return합니다.
 //* angle이 91이므로 둔각입니다. 따라서 3을 return합니다.
 //* angle이 180이므로 평각입니다. 따라서 4를 return합니다.
+
 //::::
 
 function solution(angle) {

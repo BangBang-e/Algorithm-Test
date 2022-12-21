@@ -10,6 +10,7 @@
 //* <입출력 예>
 //* num_list = [1, 2, 3, 4, 5], result = [2, 3]
 //* num_list = [1, 3, 5, 7], result = [0, 4]
+
 //::::
 
 function solution(num_list) {

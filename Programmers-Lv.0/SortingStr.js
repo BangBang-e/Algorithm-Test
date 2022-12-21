@@ -12,6 +12,7 @@
 //* my_string = "hi12392", result = [1, 2, 2, 3, 9]
 //* my_string = "p2o4i8gj2", result = [2, 2, 4, 8]
 //* my_string = "abcde0", result = [0]
+
 //::::
 
 function solution(my_string) {

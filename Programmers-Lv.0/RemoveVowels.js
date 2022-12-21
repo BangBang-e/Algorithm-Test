@@ -11,6 +11,7 @@
 //* <입출력 예>
 //* "bus"에서 모음 u를 제거한 "bs"를 return합니다.
 //* "nice to meet you"에서 모음 i, o, e, u를 모두 제거한 "nc t mt y"를 return합니다.
+
 //::::
 
 function solution(my_string) {

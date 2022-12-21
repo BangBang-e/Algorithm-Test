@@ -13,6 +13,7 @@
 //* <입출력 예>
 //* array = [149, 180, 192, 170], height = 167, result = 3
 //* array = [180, 120, 140], height = 190, result = 0
+
 //::::
 
 function solution(array, height) {
