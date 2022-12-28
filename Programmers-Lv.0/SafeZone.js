@@ -28,55 +28,58 @@
 //::::
 
 function solution(board) {
-    for(let y=0; y<board.length; y++){
-        for(let x=0; x<board[y].length; x++){
+    for (let y = 0; y < board.length; y++) {
+        for (let x = 0; x < board[y].length; x++) {
             // 내가 1일 때
-            if (board[y][x]===1) {
+            if (board[y][x] === 1) {
                 // 내가 맨 윗줄이 아닐 때 -> 내 밑에는 무적권 '위 험 지 역'
-                if (y !== 0 && board[y-1][x] !== 1) {board[y-1][x] = []}
+                if (y !== 0 && board[y - 1][x] !== 1) { board[y - 1][x] = [] }
                 // 내가 맨 밑줄이 아닐 때 -> 내 위에는 무적권 '위 험 지 역'
-                if (y !== board.length-1 && board[y+1][x] !== 1) {board[y+1][x] = []}
+                if (y !== board.length - 1 && board[y + 1][x] !== 1) { board[y + 1][x] = [] }
                 // 내가 맨 왼쪽줄이 아닐 때 -> 내 오른쪽에는 무적권 '위 험 지 역'
-                if (x !== 0 && board[y][x-1] !== 1) {board[y][x-1] = []}
+                if (x !== 0 && board[y][x - 1] !== 1) { board[y][x - 1] = [] }
                 // 내가 맨 오른쪽줄이 아닐 때 -> 내 왼쪽에는 무적권 '위 험 지 역'
-                if (x !== board[y].length-1 && board[y][x+1] !== 1) {board[y][x+1] = []}
-                
+                if (x !== board[y].length - 1 && board[y][x + 1] !== 1) { board[y][x + 1] = [] }
+
                 // 내가 왼쪽위 모서리 아닐 때 -> 내 왼쪽위에는 무적권 '위 험 지 역'
-                if (y !== 0 && x !== 0 && board[y-1][x-1] !== 1) {board[y-1][x-1] = []}
+                if (y !== 0 && x !== 0 && board[y - 1][x - 1] !== 1) { board[y - 1][x - 1] = [] }
                 // 내가 오른쪽위 모서리 아닐 때 -> 내 오른쪽위에는 무적권 '위 험 지 역'
-                if (y !== 0 && x !== board[x].length-1 && board[y-1][x+1] !== 1) {board[y-1][x+1] = []}
+                if (y !== 0 && x !== board[x].length - 1 && board[y - 1][x + 1] !== 1) { board[y - 1][x + 1] = [] }
                 // 내가 왼쪽밑 모서리 아닐 때 -> 내 왼쪽밑에는 무적권 '위 험 지 역'
-                if (y !== board.length-1 && x !== 0 && board[y+1][x-1] !== 1) {board[y+1][x-1] = []}
+                if (y !== board.length - 1 && x !== 0 && board[y + 1][x - 1] !== 1) { board[y + 1][x - 1] = [] }
                 // 내가 오른쪽밑 모서리 아닐 때 -> 내 오른쪽밑에는 무적권 '위 험 지 역'
-                if (y !== board.length-1 && x !== board[x].length-1 && board[y+1][x+1] !== 1) {board[y+1][x+1] = []}
+                if (y !== board.length - 1 && x !== board[x].length - 1 && board[y + 1][x + 1] !== 1) { board[y + 1][x + 1] = [] }
             }
         }
     }
-    return board.flat().filter(el=>el===0).length
+    return board.flat().filter(el => el === 0).length
 }
-  console.log(solution([[0, 0, 0, 0, 0],
-                        [0, 0, 0, 0, 0],
-                        [0, 0, 0, 0, 0], 
-                        [0, 0, 1, 0, 0],
-                        [0, 0, 0, 0, 0]])); // 16
+console.log(solution([[0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0],
+[0, 0, 1, 0, 0],
+[0, 0, 0, 0, 0]])); // 16
 
-  console.log(solution([[0, 0, 0, 0, 0],
-                        [0, 0, 0, 0, 0],
-                        [0, 0, 0, 0, 0], 
-                        [0, 0, 1, 1, 0],
-                        [0, 0, 0, 0, 0]])); // 13
+console.log(solution([
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 1, 1, 0],
+    [0, 0, 0, 0, 0]])); // 13
 
-  console.log(solution([[0, 0, 0, 0, 0],
-                        [0, 0, 0, 0, 1],
-                        [0, 0, 0, 1, 0], 
-                        [0, 0, 1, 0, 0],
-                        [0, 0, 0, 0, 0]])); // 9
+console.log(solution([
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 1],
+    [0, 0, 0, 1, 0],
+    [0, 0, 1, 0, 0],
+    [0, 0, 0, 0, 0]])); // 9
 
-  console.log(solution([[1, 1, 1, 1, 1, 1],
-                        [1, 1, 1, 1, 1, 1],
-                        [1, 1, 1, 1, 1, 1],
-                        [1, 1, 1, 1, 1, 1],
-                        [1, 1, 1, 1, 1, 1],
-                        [1, 1, 1, 1, 1, 1]])); // 0
+console.log(solution([
+    [1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1]])); // 0
 
 //-------------------------------------------------------------------------------------------
