@@ -54,11 +54,12 @@ function solution(board) {
     }
     return board.flat().filter(el => el === 0).length
 }
-console.log(solution([[0, 0, 0, 0, 0],
-[0, 0, 0, 0, 0],
-[0, 0, 0, 0, 0],
-[0, 0, 1, 0, 0],
-[0, 0, 0, 0, 0]])); // 16
+console.log(solution([
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 1, 0, 0],
+    [0, 0, 0, 0, 0]])); // 16
 
 console.log(solution([
     [0, 0, 0, 0, 0],
