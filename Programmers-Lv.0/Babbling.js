@@ -44,3 +44,20 @@ console.log(solution(["aya", "yee", "u", "maa", "wyeoo"])); // 1
 console.log(solution(["ayaye", "uuuma", "ye", "yemawoo", "ayaa"])); // 3
 
 //-------------------------------------------------------------------------------------------
+
+//? [2022.12.30]
+function solution2(babbling) {
+    let words = ["aya", "ye", "woo", "ma"];
+    let newArr = [];
+    babbling.forEach((x) => {
+        words.forEach((y) => {
+            if (x.includes(y)) {
+                x = x.replace(y, 1);
+                newArr.push(x);
+            }
+        });
+    });
+    return newArr.filter((el) => !isNaN(Number(el))).length;
+}
+console.log(solution2(["aya", "yee", "u", "maa", "wyeoo"])); // 1
+console.log(solution2(["ayaye", "uuuma", "ye", "yemawoo", "ayaa"])); // 3
