@@ -13,7 +13,6 @@
 //* base=[1, 2, 3, 4, 5]        sample=[6, 7]               result=false
 //* base=[10, 99, 123, 7]       sample=[11, 100, 99, 123]   result=false
 
-
 //::::
 
 //? 나의 풀이
@@ -53,7 +52,7 @@ const isSubsetOf = function (base, sample) {
 };
 
 console.log(isSubsetOf([1, 2, 3, 4, 5], [1, 3])); // true
-// console.log(isSubsetOf([1, 2, 3, 4, 5], [6, 7])); // false
-// console.log(isSubsetOf([10, 99, 123, 7], [11, 100, 99, 123])); // false
+console.log(isSubsetOf([1, 2, 3, 4, 5], [6, 7])); // false
+console.log(isSubsetOf([10, 99, 123, 7], [11, 100, 99, 123])); // false
 
 //-------------------------------------------------------------------------------------------
