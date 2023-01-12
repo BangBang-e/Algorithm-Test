@@ -24,6 +24,77 @@
 //::::
 
 function solution(X, Y) {
+
+    let number = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    let obj1 = {}
+    let obj2 = {}
+
+
+    for (el of X) {
+        if (number.includes(el)) {
+            if (!obj1[el]) {
+                obj1[el] = 0
+            } obj1[el]++
+        }
+    }
+
+    for (el of Y) {
+        if (number.includes(el)) {
+            if (!obj2[el]) {
+                obj2[el] = 0
+            } obj2[el]++
+        }
+    }
+
+    let obj1Key = Object.keys(obj1)
+    let obj2Key = Object.keys(obj2)
+    let arrKey = []
+    for (el of obj1Key) {
+        if (obj2Key.includes(el)) {
+            arrKey.push(el)
+        }
+    }
+
+    let result3 = arrKey.map(ele => {
+        if (obj1[ele] < obj2[ele]) {
+            ele = obj1[ele]
+        } else {
+            ele = obj2[ele]
+        }
+        return ele
+    })
+
+    let temp = []
+    let count = 1
+    arrKey.map((ele, idx) => {
+        count = 1
+        while (count <= result3[idx]) {
+            count++
+            temp.push(ele)
+        }
+        return ele
+    })
+
+
+    const set = [...new Set(temp)]
+
+    if (temp.length === 0) return '-1'
+    else if (set[0] === '0' && set.length === 1) {
+        return '0'
+    }
+    return temp.sort((a, b) => b - a).join('')
+}
+
+console.log(solution("100", "2345")); // "-1"
+console.log(solution("100", "203045")); // "0"
+console.log(solution("100", "123450")); // "10"
+console.log(solution("12321", "42531")); // "321"
+console.log(solution("5525", "1255")); // "552"
+
+//-------------------------------------------------------------------------------------------
+
+//? [다른 풀이]]
+function solution2(X, Y) {
     let answer = '';
     let x = [...X];
     let y = [...Y];
@@ -42,10 +113,8 @@ function solution(X, Y) {
         return answer.split("").sort((a, b) => Number(b) - Number(a)).join("")
     }
 }
-console.log(solution("100", "2345")); // "-1"
-console.log(solution("100", "203045")); // "0"
-console.log(solution("100", "123450")); // "10"
-console.log(solution("12321", "42531")); // "321"
-console.log(solution("5525", "1255")); // "552"
-
-//-------------------------------------------------------------------------------------------
+console.log(solution2("100", "2345")); // "-1"
+console.log(solution2("100", "203045")); // "0"
+console.log(solution2("100", "123450")); // "10"
+console.log(solution2("12321", "42531")); // "321"
+console.log(solution2("5525", "1255")); // "552"
