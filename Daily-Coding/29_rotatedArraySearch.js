@@ -10,17 +10,17 @@
 //! 단순히 처음부터 끝까지 찾아보는 방법(O(N)) 대신 다른 방법(O(logN))을 탐구해 보세요.
 
 //* <입출력 예>
-//* rotated=[4, 5, 6, 0, 1, 2, 3]        target=2               result=5
-//* rotated=[4, 5, 6, 0, 1, 2, 3]        target=100               result=-1
+//* rotated=[4, 5, 6, 0, 1, 2, 3]        target=2          result=5
+//* rotated=[4, 5, 6, 0, 1, 2, 3]        target=100        result=-1
 
 //::::
 
 const rotatedArraySearch = function (rotated, target) {
-    let low = 0; //10
-    let high = rotated.length - 1; //12
+    let low = 0;
+    let high = rotated.length - 1;
 
     while (low <= high) {
-        let mid = parseInt((high + low) / 2); //mid=11
+        let mid = parseInt((high + low) / 2);
         if (rotated[mid] === target) return mid;
 
         if (rotated[low] < rotated[mid]) {
