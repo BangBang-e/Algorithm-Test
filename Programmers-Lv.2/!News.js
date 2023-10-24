@@ -37,18 +37,47 @@
 //* FRANCE	    french	        16384
 //* handshake	shake hands	    65536
 //* aa1+aa2	    AAAA12	        43690
-//* E=M*C^2	    e=m*c^2	        65536                                                                   25
+//* E=M*C^2	    e=m*c^2	        65536
 
 //::::
 
 function solution(str1, str2) {
-    var answer = 0;
-    return answer;
+    str1 = str1.toLowerCase();
+    str2 = str2.toLowerCase();
+
+    function makeSets(arr) {
+        let result = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (/[A-Za-z]{2}/.test(arr.substr(i, 2))) {
+                result.push(arr.substr(i, 2));
+            }
+        }
+        return result;
+    }
+
+    let arr1 = makeSets(str1);
+    let arr2 = makeSets(str2);
+
+    let intersection = [];
+    let union = [];
+
+    for (elem of arr1) {
+        if (arr2.includes(elem)) {
+            const index = arr2.indexOf(elem);
+            intersection.push(elem);
+            arr2.splice(index, 1);
+        }
+        union.push(elem);
+    }
+    union = [...union, ...arr2];
+
+    let jaccard = [...union, ...intersection].length === 0 ? 1 : intersection.length / union.length;
+    return Math.floor((jaccard * 65536))
 }
 
 console.log(solution("FRANCE", "french")); // 16384
-console.log(solution("handshake", "handshake")); // 16384
-console.log(solution("aa1+aa2", "AAAA12")); // 16384
-console.log(solution("E=M*C^2", "e=m*c^2")); // 16384
+console.log(solution("handshake", "shake hands")); // 65536
+console.log(solution("aa1+aa2", "AAAA12")); // 43690
+console.log(solution("E=M*C^2", "e=m*c^2")); // 65536
 
 //-------------------------------------------------------------------------------------------
