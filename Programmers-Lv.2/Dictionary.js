@@ -40,3 +40,29 @@ console.log(solution("I")); // 1563
 console.log(solution("EIO")); // 1189
 
 //-------------------------------------------------------------------------------------------
+
+function solution2(word) {
+    let vowels = [..."AEIOU"];
+    let count = 0, end = false;
+
+    function dfs(newWord) {
+        if (word === newWord || end) {
+            end = true;
+            return;
+        }
+
+        if (newWord.length > 5) return;
+        count++;
+        for (let i = 0; i < vowels.length; i++) {
+            dfs(newWord + vowels[i])
+        }
+    }
+
+    dfs('');
+    return count;
+}
+
+console.log(solution2("AAAAE")); // 6
+console.log(solution2("AAAE")); // 10
+console.log(solution2("I")); // 1563
+console.log(solution2("EIO")); // 1189
